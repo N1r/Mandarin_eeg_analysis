@@ -1,0 +1,59 @@
+[project]
+name = "mandarin-speech-eeg"
+version = "1.0.0"
+description = "Temporal decoding and RSA analysis of Mandarin speech processing from EEG"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+    { name = "Yiran Ding" },
+]
+dependencies = [
+    "autoreject>=0.4.3",
+    "joblib>=1.5.3",
+    "jupyter>=1.1.1",
+    "matplotlib>=3.10.8",
+    "mne>=1.11.0",
+    "numpy>=2.4.2",
+    "pandas>=3.0.1",
+    "rsatoolbox>=0.3.2",
+    "scikit-learn>=1.6.0",
+    "scipy>=1.15.0",
+    "rich>=14.3.3",
+    "pyprep>=0.4.3",
+    "ipykernel>=7.2.0",
+    "nbclient>=0.10.4",
+    "nbformat>=5.10.4",
+    "pyyaml>=6.0.3",
+    "seaborn>=0.13.2",
+    "tabulate>=0.9.0",
+    "tqdm>=4.67.1",
+    "pypinyin>=0.55.0",
+    "qwen-asr>=0.0.6",
+]
+
+[project.scripts]
+analyze-session = "mandarin_speech_eeg.cli:analyze_session_cli"
+analyze-subject = "mandarin_speech_eeg.cli:analyze_subject_cli"
+analyze-group = "mandarin_speech_eeg.cli:analyze_group_cli"
+analyze-onset = "mandarin_speech_eeg.cli:analyze_onset_cli"
+analyze-asr = "mandarin_speech_eeg.cli:analyze_asr_cli"
+analyze-selection = "mandarin_speech_eeg.cli:analyze_selection_cli"
+eeg-step-1-asr = "mandarin_speech_eeg.step_1_asr:main"
+eeg-step-2-selection = "mandarin_speech_eeg.step_2_selection:main"
+eeg-step-3-onset = "mandarin_speech_eeg.step_3_onset:main"
+eeg-step-4-epoch = "mandarin_speech_eeg.step_4_epoch:main"
+eeg-step-5-decoding = "mandarin_speech_eeg.step_5_decoding:main"
+eeg-step-6-rsa = "mandarin_speech_eeg.step_6_rsa:main"
+eeg-step-7-heterorc = "mandarin_speech_eeg.step_7_heterorc:main"
+eeg-step-8-integrated = "mandarin_speech_eeg.step_8_integrated:main"
+eeg-step-9-group = "mandarin_speech_eeg.step_9_group:main"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
